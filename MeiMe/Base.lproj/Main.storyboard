@@ -103,17 +103,17 @@
                                 <exclude reference="3Ti-oJ-fFw"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="25M-BE-xcM"/>
-                                <exclude reference="87j-Ex-zoQ"/>
-                                <exclude reference="V2d-Yi-H5y"/>
-                                <exclude reference="IU5-tF-acz"/>
-                                <exclude reference="ucn-vt-RDM"/>
                                 <exclude reference="0EL-ES-R04"/>
                                 <exclude reference="taS-xZ-FH1"/>
+                                <exclude reference="IU5-tF-acz"/>
+                                <exclude reference="ucn-vt-RDM"/>
                                 <exclude reference="BhQ-dW-8ji"/>
                                 <exclude reference="TdN-8x-GbS"/>
                                 <exclude reference="ugs-e8-rfx"/>
                                 <exclude reference="zvP-kN-4ZO"/>
+                                <exclude reference="25M-BE-xcM"/>
+                                <exclude reference="87j-Ex-zoQ"/>
+                                <exclude reference="V2d-Yi-H5y"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -124,17 +124,17 @@
                                 <include reference="3Ti-oJ-fFw"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="25M-BE-xcM"/>
-                                <include reference="87j-Ex-zoQ"/>
-                                <include reference="V2d-Yi-H5y"/>
-                                <include reference="IU5-tF-acz"/>
-                                <include reference="ucn-vt-RDM"/>
                                 <include reference="0EL-ES-R04"/>
                                 <include reference="taS-xZ-FH1"/>
+                                <include reference="IU5-tF-acz"/>
+                                <include reference="ucn-vt-RDM"/>
                                 <include reference="BhQ-dW-8ji"/>
                                 <include reference="TdN-8x-GbS"/>
                                 <include reference="ugs-e8-rfx"/>
                                 <include reference="zvP-kN-4ZO"/>
+                                <include reference="25M-BE-xcM"/>
+                                <include reference="87j-Ex-zoQ"/>
+                                <include reference="V2d-Yi-H5y"/>
                             </mask>
                         </variation>
                     </view>

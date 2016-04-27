@@ -33,14 +33,40 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     }
     
     override func viewWillAppear(animated: Bool) {
+         super.viewWillAppear(animated)
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+         NSNotificationCenter.defaultCenter().addObserver(self,selector: #selector(ViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardWillHideNotification, object: nil)
     }
 
+    func keyboardWillShow(notification: NSNotification) {
+        view.frame.origin.y -= getKeyboardHeight(notification)
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        view.frame.origin.y += getKeyboardHeight(notification)
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.CGRectValue().height
+    }
+    
     @IBAction func pickImage(sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -74,14 +100,14 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     func textFieldDidBeginEditing(textField: UITextField) {    //delegate method
         print("text field did begin editing")
        
-        if textField.text == "TOP"{
+        if textField.text == "TOP" || textField.text == "BOTTOM"{
             textField.text = ""
         }
     }
     
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {  //delegate method
         print("text field should end editing")
-        return false
+        return true
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
